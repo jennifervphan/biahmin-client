@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AuthService from './AuthService';
 import { Link } from 'react-router-dom';
 import './Login.css';
+import Mainlayout from "../layout/Mainlayout"
 
 class Login extends Component {
   constructor(props){
@@ -32,23 +33,23 @@ class Login extends Component {
     
   render(){
     return(
-      <div className="loginPage">
-        <div className="loginForm">
-        <h3>Log in</h3>
-        <form className="loginInput" onSubmit={this.handleFormSubmit}>
-          <label>Username:</label>
-          <input type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
+      <Mainlayout>
+        <div className="loginPage">
+          <div className="loginForm">
+          <h3>Log in</h3>
+          <form className="loginInput" onSubmit={this.handleFormSubmit}>
+            <input placeholder="Username" type="text" name="username" value={this.state.username} onChange={ e => this.handleChange(e)}/>
 
-          <label>Password:</label>
-          <input type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
-          
-          <button className="submitBtn" type="submit">Log in</button>
-        </form>
-        <p>Don't have account? 
-        <Link to={"/register"} style={{ color: 'rgb(5, 5, 5)', textDecoration:"underline" }}> Register</Link>
-        </p>
+            <input placeholder="Password" type="password" name="password" value={this.state.password} onChange={ e => this.handleChange(e)} />
+            
+            <button className="submitBtn" type="submit">Log in</button>
+          </form>
+          <p>Don't have account? 
+          <Link to={"/register"} style={{ color: 'rgb(5, 5, 5)', textDecoration:"underline" }}> Register</Link>
+          </p>
+          </div>
         </div>
-      </div>
+      </Mainlayout>
     )
   }
 }
